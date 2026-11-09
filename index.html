@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="my" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Ba Dat Kha | အဘဓာတ်ခန်းဗေဒင် - Traditional Myanmar Astrology</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display, Inter, Noto Serif Myanmar, Noto Sans Myanmar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Noto+Serif+Myanmar:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        maroon: '#542B27',
+                        lacquer: '#8C302D',
+                        gold: '#C69B4B',
+                        'gold-light': '#E2C275',
+                        parchment: '#E9D7B2',
+                        ivory: '#F8F3E8',
+                        teak: '#30241F',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Noto Serif Myanmar', 'serif'],
+                        sans: ['Inter', 'Noto Sans Myanmar', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+            background-color: #F8F3E8;
+            color: #30241F;
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Playfair Display', 'Noto Serif Myanmar', serif;
+        }
+        .lacquer-bg {
+            background-color: #8C302D;
+        }
+        .maroon-bg {
+            background-color: #542B27;
+        }
+        .gold-border {
+            border-color: #C69B4B;
+        }
+        .gold-text {
+            color: #C69B4B;
+        }
+        .parchment-bg {
+            background-color: #E9D7B2;
+        }
+        .ivory-bg {
+            background-color: #F8F3E8;
+        }
+        .teak-text {
+            color: #30241F;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F3E8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C69B4B;
+            border-radius: 4px;
+        }
+        .ornament-border {
+            border-image: linear-gradient(to right, #C69B4B, #8C302D, #C69B4B) 1;
+        }
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-gold selection:text-maroon">
+
+    <!-- TOP NOTIFICATION / ANNOUNCEMENT BAR -->
+    <div id="announcement-bar" class="bg-maroon text-ivory text-xs sm:text-sm py-2 px-4 text-center font-medium border-b border-gold/30 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto w-full flex flex-col sm:flex-row justify-center items-center gap-2">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-star text-gold"></i> <span data-i18n="top_banner">တန်ခူးလ အထူးဗေဒင်ဟောကိန်းများ ရယူနိုင်ပါပြီ | Special New Year Astrology Readings Available</span></span>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-ivory/95 backdrop-blur-md border-b border-gold/40 shadow-sm transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" onclick="router.navigate('home')" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-full maroon-bg flex items-center justify-center border-2 border-gold shadow-md group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-om text-gold text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-wider text-maroon font-heading">အဘဓာတ်ခန်း</h1>
+                    <p class="text-[10px] sm:text-xs text-gold tracking-widest font-semibold uppercase">A Ba Dat Kha · Astrology</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 font-medium text-sm sm:text-base">
+                <button onclick="router.navigate('home')" class="nav-link text-maroon hover:text-lacquer transition-colors pb-1 border-b-2 border-transparent hover:border-gold" data-i18n="nav_home">ပင်မ</button>
+                <button onclick="router.navigate('services')" class="nav-link text-maroon hover:text-lacquer transition-colors pb-1 border-b-2 border-transparent hover:border-gold" data-i18n="nav_services">ဝန်ဆောင်မှုများ</button>
+                <button onclick="router.navigate('howitworks')" class="nav-link text-maroon hover:text-lacquer transition-colors pb-1 border-b-2 border-transparent hover:border-gold" data-i18n="nav_how">ပြုလုပ်ပုံ</button>
+                <button onclick="router.navigate('faq')" class="nav-link text-maroon hover:text-lacquer transition-colors pb-1 border-b-2 border-transparent hover:border-gold" data-i18n="nav_faq">မေးလေ့ရှိသည်များ</button>
+                <button onclick="router.navigate('contact')" class="nav-link text-maroon hover:text-lacquer transition-colors pb-1 border-b-2 border-transparent hover:border-gold" data-i18n="nav_contact">ဆက်သွယ်ရန်</button>
+            </nav>
+
+            <!-- Actions: Language Switcher, Account, Mobile Menu Toggle -->
+            <div class="flex items-center gap-3">
+                <!-- Language Switcher -->
+                <button onclick="toggleLanguage()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gold/60 text-xs sm:text-sm font-semibold text-maroon hover:bg-gold/10 transition-colors shadow-sm">
+                    <i class="fa-solid fa-globe text-gold"></i>
+                    <span id="lang-btn-text">English</span>
+                </button>
+
+                <!-- Account / Login Button -->
+                <div id="auth-action-container">
+                    <button onclick="openAuthModal()" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full maroon-bg text-ivory text-sm font-medium hover:bg-lacquer transition-all shadow hover:shadow-md">
+                        <i class="fa-solid fa-user"></i>
+                        <span data-i18n="nav_login">အကောင့်ဝင်ရန်</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg text-maroon hover:bg-gold/10 transition-colors">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ivory border-b border-gold/40 px-6 py-4 space-y-3 shadow-lg">
+            <button onclick="router.navigate('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-maroon hover:text-lacquer" data-i18n="nav_home">ပင်မ</button>
+            <button onclick="router.navigate('services'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-maroon hover:text-lacquer" data-i18n="nav_services">ဝန်ဆောင်မှုများ</button>
+            <button onclick="router.navigate('howitworks'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-maroon hover:text-lacquer" data-i18n="nav_how">ပြုလုပ်ပုံ</button>
+            <button onclick="router.navigate('faq'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-maroon hover:text-lacquer" data-i18n="nav_faq">မေးလေ့ရှိသည်များ</button>
+            <button onclick="router.navigate('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-maroon hover:text-lacquer" data-i18n="nav_contact">ဆက်သွယ်ရန်</button>
+            <div class="pt-2 border-t border-gold/30 flex flex-col gap-2">
+                <button onclick="openAuthModal(); toggleMobileMenu();" class="w-full py-2.5 rounded-lg maroon-bg text-ivory font-medium text-center shadow">
+                    <i class="fa-solid fa-user mr-2"></i> <span data-i18n="nav_login">အကောင့်ဝင်ရန် / စာရင်းသွင်းရန်</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN APP CONTAINER -->
+    <main id="app-container" class="flex-grow">
+        <!-- Views will be dynamically injected here -->
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-teak text-ivory pt-16 pb-10 border-t-4 border-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <!-- Col 1: Brand Info -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full maroon-bg flex items-center justify-center border border-gold">
+                        <i class="fa-solid fa-om text-gold text-lg"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold tracking-wide font-heading text-parchment">အဘဓာတ်ခန်း</h2>
+                        <p class="text-xs text-gold tracking-widest uppercase">Traditional Astrology</p>
+                    </div>
+                </div>
+                <p class="text-xs text-parchment/80 leading-relaxed" data-i18n="footer_desc">
+                    မြန်မာ့ရိုးရာဗေဒင်ပညာ၊ မဟာဘုတ်၊ နက္ခတ်နှင့် ဇာတာများကို ခေတ်မီနည်းပညာဖြင့် တိကျမှန်ကန်စွာ ဟောကိန်းထုတ်ပေးနေသော ဒစ်ဂျစ်တယ်ပလက်ဖောင်း။
+                </p>
+                <div class="flex space-x-3 pt-2">
+                    <a href="#" class="w-8 h-8 rounded-full bg-maroon flex items-center justify-center text-gold hover:bg-gold hover:text-teak transition-colors"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-maroon flex items-center justify-center text-gold hover:bg-gold hover:text-teak transition-colors"><i class="fa-brands fa-telegram text-sm"></i></a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-maroon flex items-center justify-center text-gold hover:bg-gold hover:text-teak transition-colors"><i class="fa-brands fa-viber text-sm"></i></a>
+                </div>
+            </div>
+
+            <!-- Col 2: Quick Links -->
+            <div class="space-y-3">
+                <h3 class="text-gold font-bold text-base font-heading border-b border-gold/30 pb-2" data-i18n="footer_links">အမြန်လင့်များ</h3>
+                <ul class="space-y-2 text-xs sm:text-sm text-parchment/90">
+                    <li><button onclick="router.navigate('services')" class="hover:text-gold transition-colors" data-i18n="nav_services">ဗေဒင်ဝန်ဆောင်မှုများ</button></li>
+                    <li><button onclick="router.navigate('howitworks')" class="hover:text-gold transition-colors" data-i18n="nav_how">ဝန်ဆောင်မှုရယူပုံ</button></li>
+                    <li><button onclick="router.navigate('faq')" class="hover:text-gold transition-colors" data-i18n="nav_faq">မေးလေ့ရှိသောမေးခွန်းများ</button></li>
+                    <li><button onclick="router.navigate('contact')" class="hover:text-gold transition-colors" data-i18n="nav_contact">ဆက်သွယ်ရန်</button></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Popular Services -->
+            <div class="space-y-3">
+                <h3 class="text-gold font-bold text-base font-heading border-b border-gold/30 pb-2" data-i18n="footer_services">လူကြိုက်များသော ဟောကိန်းများ</h3>
+                <ul class="space-y-2 text-xs sm:text-sm text-parchment/90">
+                    <li><a href="#" onclick="router.navigate('services')" class="hover:text-gold transition-colors">ကိုယ်ပိုင်ဇာတာနှင့် ကံကြမ္မာ</a></li>
+                    <li><a href="#" onclick="router.navigate('services')" class="hover:text-gold transition-colors">မဟာဘုတ် ဗေဒင်အထူး</a></li>
+                    <li><a href="#" onclick="router.navigate('services')" class="hover:text-gold transition-colors">အချစ်ရေးနှင့် အိမ်ထောင်ရေး</a></li>
+                    <li><a href="#" onclick="router.navigate('services')" class="hover:text-gold transition-colors">စီးပွားရေးနှင့် ငွေကြေး</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Contact & Support -->
+            <div class="space-y-3">
+                <h3 class="text-gold font-bold text-base font-heading border-b border-gold/30 pb-2" data-i18n="footer_contact">ဆက်သွယ်ရန်</h3>
+                <p class="text-xs text-parchment/85 flex items-start gap-2">
+                    <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                    <span data-i18n="footer_address">အမှတ် (၁၂၃)၊ ဗိုလ်ချုပ်လမ်း၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့။</span>
+                </p>
+                <p class="text-xs text-parchment/85 flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-gold"></i>
+                    <span>+95 9 789 456 123</span>
+                </p>
+                <p class="text-xs text-parchment/85 flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-gold"></i>
+                    <span>support@abadatkha.com</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-gold/20 flex flex-col sm:flex-row items-center justify-between text-xs text-parchment/60 gap-4">
+            <p data-i18n="footer_rights">© 2026 A Ba Dat Kha · Traditional Myanmar Astrology Platform. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_privacy">ကိုယ်ရေးကိုယ်တာ မူဝါဒ</a>
+                <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_terms">ဝန်ဆောင်မှုစည်းမျဉ်းများ</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AUTHENTICATION MODAL -->
+    <div id="auth-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-ivory rounded-2xl max-w-md w-full border-2 border-gold p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <button onclick="closeAuthModal()" class="absolute top-4 right-4 text-maroon hover:text-lacquer text-xl font-bold w-8 h-8 rounded-full bg-parchment/50 flex items-center justify-center transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-center mb-6">
+                <div class="w-14 h-14 rounded-full maroon-bg mx-auto flex items-center justify-center border-2 border-gold shadow mb-3">
+                    <i class="fa-solid fa-om text-gold text-2xl"></i>
+                </div>
+                <h3 id="auth-title" class="text-2xl font-bold font-heading text-maroon" data-i18n="auth_login_title">အကောင့်ဝင်ရန်</h3>
+                <p class="text-xs sm:text-sm text-teak/70 mt-1" data-i18n="auth_login_subtitle">သင့်ဗေဒင်အမှာစာများနှင့် အစီရင်ခံစာများကို ကြည့်ရှုရန် အကောင့်ဝင်ပါ။</p>
+            </div>
+
+            <!-- Auth Form Tabs -->
+            <div class="flex border-b border-gold/40 mb-6 text-sm font-semibold">
+                <button onclick="switchAuthTab('login')" id="tab-login" class="flex-1 pb-2 text-center text-maroon border-b-2 border-lacquer transition-all" data-i18n="auth_tab_login">အကောင့်ဝင်ရန်</button>
+                <button onclick="switchAuthTab('register')" id="tab-register" class="flex-1 pb-2 text-center text-teak/60 border-b-2 border-transparent transition-all" data-i18n="auth_tab_register">အသစ်စာရင်းသွင်းရန်</button>
+                <button onclick="switchAuthTab('admin')" id="tab-admin" class="flex-1 pb-2 text-center text-teak/60 border-b-2 border-transparent transition-all" data-i18n="auth_tab_admin">စီမံခန့်ခွဲသူ</button>
+            </div>
+
+            <form id="auth-form" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="register-name-field" class="hidden">
+                    <label class="block text-xs font-semibold text-maroon mb-1" data-i18n="label_fullname">အမည်အပြည့်အစုံ</label>
+                    <input type="text" id="auth-name" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white/80 text-sm focus:outline-none focus:ring-2 focus:ring-lacquer" placeholder="ဦးအောင်အောင် / Mg Mg">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-maroon mb-1" data-i18n="label_email_phone">ဖုန်းနံပါတ် သို့မဟုတ် အီးမေးလ်</label>
+                    <input type="text" id="auth-identifier" required class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white/80 text-sm focus:outline-none focus:ring-2 focus:ring-lacquer" placeholder="09912345678 သို့မဟုတ် email@domain.com">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-maroon mb-1" data-i18n="label_password">စကားဝှက် (Password)</label>
+                    <input type="password" id="auth-password" required class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white/80 text-sm focus:outline-none focus:ring-2 focus:ring-lacquer" placeholder="••••••••">
+                </div>
+
+                <div id="auth-error" class="text-xs text-red-600 font-medium hidden"></div>
+
+                <button type="submit" id="auth-submit-btn" class="w-full py-3 rounded-lg lacquer-bg text-ivory font-semibold text-sm shadow hover:bg-maroon transition-colors" data-i18n="btn_login">
+                    အကောင့်ဝင်မည်
+                </button>
+            </form>
+
+            <div class="mt-6 pt-4 border-t border-gold/30 text-center text-xs text-teak/70">
+                <p><span data-i18n="auth_guest_prompt">ဧည့်သည်အဖြစ် ဆက်လက်ကြည့်ရှုလိုပါသလား။</span> <button onclick="closeAuthModal(); router.navigate('services');" class="text-lacquer font-bold hover:underline" data-i18n="auth_guest_link">ဝန်ဆောင်မှုများသို့ သွားရန်</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GLOBAL TOAST NOTIFICATION -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 pointer-events-none"></div>
+
+    <!-- JAVASCRIPT APP LOGIC -->
+    <script>
+        /* ==============================================
+           1. LOCALIZATION & DATA TRANSLATIONS
+           ============================================== */
+        const translations = {
+            my: {
+                top_banner: "တန်ခူးလ အထူးဗေဒင်ဟောကိန်းများ ရယူနိုင်ပါပြီ | Special New Year Astrology Readings Available",
+                nav_home: "ပင်မ",
+                nav_services: "ဝန်ဆောင်မှုများ",
+                nav_how: "ပြုလုပ်ပုံ",
+                nav_faq: "မေးလေ့ရှိသည်များ",
+                nav_contact: "ဆက်သွယ်ရန်",
+                nav_login: "အကောင့်ဝင်ရန်",
+                nav_dashboard: "ကျွန်ုပ်၏အကောင့်",
+                nav_admin: "စီမံခန့်ခွဲမှု",
+                nav_logout: "ထွက်ရန်",
+                hero_title: "သင့်ဘဝခရီးအတွက် ဗေဒင်လမ်းညွှန်မှု",
+                hero_subtitle: "မြန်မာ့ရိုးရာ မဟာဘုတ်၊ နက္ခတ်နှင့် ဇာတာပညာများကို အခြေခံ၍ သင့်အနာဂတ်ကို တိကျမှန်ကန်စွာ ဟောကိန်းထုတ်ပေးပါသည်။",
+                hero_cta: "ဗေဒင်ကြည့်ရန် စတင်မည်",
+                hero_cta2: "ဝန်ဆောင်မှုများကြည့်ရန်",
+                features_title: "အဘဓာတ်ခန်း ရွေးချယ်ရခြင်း အကြောင်းရင်း",
+                feat_1_title: "မြန်မာ့ရိုးရာ အမွေအနှစ်",
+                feat_1_desc: "ရှေးဟောင်းမြန်မာ့ဗေဒင်ပညာရှင်ကြီးများ၏ ကျမ်းဂန်များအတိုင်း တိကျသေချာစွာ တွက်ချက်ဟောကိန်းထုတ်ပေးခြင်း။",
+                feat_2_title: "ယုံကြည်စိတ်ချရမှုနှင့် ဉာဏ်ပညာ",
+                feat_2_desc: "အတွေ့အကြုံရင့် ကျွမ်းကျင်ဗေဒင်ပညာရှင်ကြီးများမှ ကိုယ်တိုင်စစ်ဆေးပြီး စိတ်ချယုံကြည်ရသော အစီရင်ခံစာများ။",
+                feat_3_title: "ခေတ်မီလွယ်ကူမှု",
+                feat_3_desc: "အွန်လိုင်းမှ လွယ်ကူစွာ ဘိုကင်တင်ခြင်း၊ ငွေပေးချေခြင်းနှင့် ဒစ်ဂျစ်တယ် PDF အစီရင်ခံစာများ တိုက်ရိုက်ရယူနိုင်ခြင်း။",
+                services_section_title: "ဗေဒင်ဝန်ဆောင်မှုများ",
+                services_section_sub: "သင့်ဘဝကဏ္ဍအသီးသီးအတွက် အထူးပြု ဝန်ဆောင်မှုများကို ရွေးချယ်ပါ။",
+                btn_view_details: "အသေးစိတ်ကြည့်ရန်",
+                btn_book_now: "ဘိုကင်တင်မည်",
+                how_title: "ဝန်ဆောင်မှုရယူပုံ အဆင့်ဆင့်",
+                how_sub: "ရိုးရှင်းလွယ်ကူသော အဆင့် (၄) ဆင့်ဖြင့် သင့်ဗေဒင်ဟောကိန်းကို ရယူပါ။",
+                step_1: "ဝန်ဆောင်မှုရွေးချယ်ပါ",
+                step_1_desc: "သင့်လိုအပ်ချက်နှင့် ကိုက်ညီသော ဗေဒင်အမျိုးအစားကို ရွေးချယ်ပါ။",
+                step_2: "မွေးနေ့မွေးချိန်ဖြည့်ပါ",
+                step_2_desc: "မွေးသက္ကရာဇ်၊ မွေးချိန်နှင့် မွေးဖွားရာဒေသတို့ကို တိကျစွာ ဖြည့်သွင်းပါ။",
+                step_3: "ငွေပေးချေပါ",
+                step_3_desc: "KBZPay၊ WavePay သို့မဟုတ် ဘဏ်ငွေလွှဲစနစ်ဖြင့် လွယ်ကူလုံခြုံစွာ ငွေပေးချေပါ။",
+                step_4: "အစီရင်ခံစာရယူပါ",
+                step_4_desc: "၁-၃ ရက်အတွင်း သင့်အကောင့်မှတစ်ဆင့် PDF အစီရင်ခံစာကို ဒေါင်းလုဒ်လုပ်ပါ။",
+                testimonials_title: "သုံးစွဲသူများ၏ ဝေဖန်သုံးသပ်ချက်များ",
+                faq_title: "မေးလေ့ရှိသော မေးခွန်းများ",
+                contact_title: "ဆက်သွယ်ရန်",
+                contact_sub: "မေးမြန်းလိုသည်များရှိပါက ကျွန်ုပ်တို့ထံ ဆက်သွယ်နိုင်ပါသည်။",
+                btn_send_msg: "မက်ဆေ့ခ်ျ ပို့မည်",
+                footer_desc: "မြန်မာ့ရိုးရာဗေဒင်ပညာ၊ မဟာဘုတ်၊ နက္ခတ်နှင့် ဇာတာများကို ခေတ်မီနည်းပညာဖြင့် တိကျမှန်ကန်စွာ ဟောကိန်းထုတ်ပေးနေသော ဒစ်ဂျစ်တယ်ပလက်ဖောင်း။",
+                footer_links: "အမြန်လင့်များ",
+                footer_services: "လူကြိုက်များသော ဟောကိန်းများ",
+                footer_contact: "ဆက်သွယ်ရန်",
+                footer_address: "အမှတ် (၁၂၃)၊ ဗိုလ်ချုပ်လမ်း၊ ကျောက်တံတားမြို့နယ်၊ ရန်ကုန်မြို့။",
+                footer_rights: "© 2026 A Ba Dat Kha · Traditional Myanmar Astrology Platform. All rights reserved.",
+                footer_privacy: "ကိုယ်ရေးကိုယ်တာ မူဝါဒ",
+                footer_terms: "ဝန်ဆောင်မှုစည်းမျဉ်းများ",
+                auth_login_title: "အကောင့်ဝင်ရန်",
+                auth_login_subtitle: "သင့်ဗေဒင်အမှာစာများနှင့် အစီရင်ခံစာများကို ကြည့်ရှုရန် အကောင့်ဝင်ပါ။",
+                auth_tab_login: "အကောင့်ဝင်ရန်",
+                auth_tab_register: "အသစ်စာရင်းသွင်းရန်",
+                auth_tab_admin: "စီမံခန့်ခွဲသူ",
+                label_fullname: "အမည်အပြည့်အစုံ",
+                label_email_phone: "ဖုန်းနံပါတ် သို့မဟုတ် အီးမေးလ်",
+                label_password: "စကားဝှက် (Password)",
+                btn_login: "အကောင့်ဝင်မည်",
+                btn_register: "စာရင်းသွင်းမည်",
+                auth_guest_prompt: "ဧည့်သည်အဖြစ် ဆက်လက်ကြည့်ရှုလိုပါသလား။",
+                auth_guest_link: "ဝန်ဆောင်မှုများသို့ သွားရန်",
+                booking_step_service: "ဝန်ဆောင်မှု",
+                booking_step_details: "မွေးနေ့အချက်အလက်",
+                booking_step_summary: "အကျဉ်းချုပ်နှင့် ငွေပေးချေမှု",
+                booking_step_complete: "ပြီးမြောက်မှု",
+                form_fullname: "အမည်အပြည့်အစုံ (Full Name)",
+                form_gender: "ကျား/မ (Gender)",
+                form_gender_opt1: "ရွေးချယ်ပါ",
+                form_gender_opt2: "ကျား (Male)",
+                form_gender_opt3: "မ (Female)",
+                form_dob: "မွေးသက္ကရာဇ် (Date of Birth)",
+                form_tob: "မွေးချိန် (Time of Birth)",
+                form_tob_unknown: "မွေးချိန်မသိပါ (I don't know)",
+                form_pob: "မွေးဖွားရာဒေသ (Place of Birth)",
+                form_weekday: "မွေးနေ့ (Birth Weekday)",
+                form_weekday_opt: "ရွေးချယ်ပါ (စနေ၊ တနင်္ဂနွေ စသည်)",
+                form_question: "အထူးမေးမြန်းလိုသည့် မေးခွန်းများ (Specific Question)",
+                form_phone: "ဖုန်းနံပါတ် (Phone Number)",
+                form_email: "အီးမေးလ် (Email)",
+                btn_next: "ဆက်လုပ်မည်",
+                btn_back: "နောက်သို့",
+                payment_methods: "ငွေပေးချေမည့် နည်းလမ်းကို ရွေးချယ်ပါ",
+                pay_now: "ငွေပေးချေမည် (Pay Now)",
+                order_summary_title: "ဘိုကင်အကျဉ်းချုပ်",
+                service_fee: "ဝန်ဆောင်ခ",
+                discount: "လျှော့စျေး",
+                total_amount: "စုစုပေါင်း ကျသင့်ငွေ",
+                dashboard_title: "ကျွန်ုပ်၏ အကောင့်နှင့် မှာယူမှုများ",
+                dash_welcome: "မင်္ဂလာပါ၊",
+                tab_bookings: "ကျွန်ုပ်၏ ဘိုကင်များ",
+                tab_reports: "ဗေဒင်အစီရင်ခံစာများ",
+                tab_profile: "ကိုယ်ရေးအချက်အလက်",
+                no_bookings: "လက်ရှိ ဘိုကင်တင်ထားခြင်း မရှိသေးပါ။",
+                no_reports: "အစီရင်ခံစာများ မရှိသေးပါ။ ဟောကိန်းများ ပြီးစီးပါက ဤနေရာတွင် ပေါ်လာပါမည်။",
+                download_report: "PDF အစီရင်ခံစာ ဒေါင်းလုဒ်လုပ်ရန်",
+                view_report: "အစီရင်ခံစာကြည့်ရန်",
+                admin_title: "စီမံခန့်ခွဲမှု ဒက်ရှ်ဘုတ် (Admin Dashboard)",
+                admin_subtitle: "အမှာစာများ၊ ငွေပေးချေမှုများနှင့် ဗေဒင်ဆရာများ စီမံခန့်ခွဲရန်",
+                admin_orders: "အမှာစာများ (Orders)",
+                admin_payments: "ငွေပေးချေမှုများ (Payments)",
+                admin_reports_mgmt: "အစီရင်ခံစာတင်ရန် (Reports)",
+                status_pending: "စောင့်ဆိုင်းဆဲ",
+                status_paid: "ငွေပေးချေပြီး",
+                status_processing: "ဆောင်ရွက်ဆဲ",
+                status_delivered: "ပြီးစီးပါပြီ",
+                btn_approve: "အတည်ပြုမည်",
+                btn_upload_report: "အစီရင်ခံစာ PDF တင်မည်"
+            },
+            en: {
+                top_banner: "Special New Year Astrology Readings Available Now!",
+                nav_home: "Home",
+                nav_services: "Services",
+                nav_how: "How It Works",
+                nav_faq: "FAQ",
+                nav_contact: "Contact Us",
+                nav_login: "Login / Register",
+                nav_dashboard: "My Account",
+                nav_admin: "Admin",
+                nav_logout: "Logout",
+                hero_title: "Traditional Myanmar Astrology · Digital Guidance",
+                hero_subtitle: "Discover your destiny through authentic Mahabote, Nakhat, and traditional Burmese horoscope wisdom.",
+                hero_cta: "Get Your Reading",
+                hero_cta2: "Explore Services",
+                features_title: "Why Choose A Ba Dat Kha",
+                feat_1_title: "Myanmar Heritage",
+                feat_1_desc: "Rooted in authentic ancient Burmese astrological canons, cultural identity, and traditional calculations.",
+                feat_2_title: "Trust & Wisdom",
+                feat_2_desc: "Professional guidance verified and crafted by experienced master astrologers.",
+                feat_3_title: "Modern Convenience",
+                feat_3_desc: "Seamless online booking, secure local payments, and digital PDF astrology reports.",
+                services_section_title: "Astrology Services",
+                services_section_sub: "Choose specialized readings tailored for your life journey.",
+                btn_view_details: "View Details",
+                btn_book_now: "Book This Service",
+                how_title: "How It Works",
+                how_sub: "Simple 4-step process to receive your professional astrology reading.",
+                step_1: "Choose Service",
+                step_1_desc: "Browse our specialized astrology readings and select what fits you.",
+                step_2: "Enter Birth Details",
+                step_2_desc: "Provide your birth date, time, and specific questions.",
+                step_3: "Secure Payment",
+                step_3_desc: "Pay securely via KBZPay, WavePay, or bank transfer.",
+                step_4: "Receive Report",
+                step_4_desc: "Download your personalized PDF report within 1-3 working days.",
+                testimonials_title: "Customer Testimonials",
+                faq_title: "Frequently Asked Questions",
+                contact_title: "Contact Us",
+                contact_sub: "Have questions or need guidance? Reach out to our team.",
+                btn_send_msg: "Send Message",
+                footer_desc: "Digital platform delivering authentic Myanmar astrology, Mahabote, and horoscopes with modern convenience.",
+                footer_links: "Quick Links",
+                footer_services: "Popular Readings",
+                footer_contact: "Contact Info",
+                footer_address: "123 Bo Gyoke Road, Kyauktada Township, Yangon.",
+                footer_rights: "© 2026 A Ba Dat Kha · Traditional Myanmar Astrology Platform. All rights reserved.",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                auth_login_title: "Customer Login",
+                auth_login_subtitle: "Sign in to access your bookings and astrology reports.",
+                auth_tab_login: "Login",
+                auth_tab_register: "Register",
+                auth_tab_admin: "Admin Staff",
+                label_fullname: "Full Name",
+                label_email_phone: "Phone Number or Email",
+                label_password: "Password",
+                btn_login: "Sign In",
+                btn_register: "Create Account",
+                auth_guest_prompt: "Want to continue as guest?",
+                auth_guest_link: "Browse Services",
+                booking_step_service: "Service",
+                booking_step_details: "Birth Details",
+                booking_step_summary: "Summary & Payment",
+                booking_step_complete: "Complete",
+                form_fullname: "Full Name",
+                form_gender: "Gender",
+                form_gender_opt1: "Select",
+                form_gender_opt2: "Male",
+                form_gender_opt3: "Female",
+                form_dob: "Date of Birth",
+                form_tob: "Time of Birth",
+                form_tob_unknown: "I don't know my birth time",
+                form_pob: "Place of Birth",
+                form_weekday: "Birth Weekday",
+                form_weekday_opt: "Select (Saturday, Sunday, etc.)",
+                form_question: "Specific Question or Concern",
+                form_phone: "Phone Number",
+                form_email: "Email Address",
+                btn_next: "Save & Continue",
+                btn_back: "Back",
+                payment_methods: "Select Payment Method",
+                pay_now: "Pay Now",
+                order_summary_title: "Booking Summary",
+                service_fee: "Service Fee",
+                discount: "Discount",
+                total_amount: "Total Amount",
+                dashboard_title: "My Account & Bookings",
+                dash_welcome: "Welcome,",
+                tab_bookings: "My Bookings",
+                tab_reports: "Astrology Reports",
+                tab_profile: "My Profile",
+                no_bookings: "No bookings found yet.",
+                no_reports: "No astrology reports available yet. They will appear here once completed.",
+                download_report: "Download PDF Report",
+                view_report: "View Report",
+                admin_title: "Admin Management Dashboard",
+                admin_subtitle: "Manage customer bookings, payments, and astrology report assignments",
+                admin_orders: "Orders",
+                admin_payments: "Payments",
+                admin_reports_mgmt: "Reports",
+                status_pending: "Pending",
+                status_paid: "Paid",
+                status_processing: "Processing",
+                status_delivered: "Delivered",
+                btn_approve: "Approve",
+                btn_upload_report: "Upload PDF Report"
+            }
+        };
+
+        let currentLang = localStorage.getItem('abk_lang') || 'my';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('abk_lang', lang);
+            document.documentElement.lang = lang;
+            document.getElementById('lang-btn-text').innerText = lang === 'my' ? 'English' : 'မြန်မာ';
+            
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+            
+            // Re-render current view if needed
+            router.refresh();
+        }
+
+        function toggleLanguage() {
+            setLanguage(currentLang === 'my' ? 'en' : 'my');
+        }
+
+        /* ==============================================
+           2. DATABASE & MOCK STATE MANAGEMENT
+           ============================================== */
+        const servicesData = [
+            {
+                id: 'personal-horoscope',
+                title: { my: 'ကိုယ်ပိုင်ဇာတာနှင့် ကံကြမ္မာ', en: 'Personal Horoscope' },
+                desc: { 
+                    my: 'သင့်မွေးသက္ကရာဇ်အပေါ် မူတည်၍ တစ်နှစ်တာ ကံကြမ္မာ၊ အသက်အလိုက် ကျရောက်မည့် အပြောင်းအလဲများနှင့် အကျိုးပေးများကို အသေးစိတ် ဟောကိန်းထုတ်ပေးခြင်း။', 
+                    en: 'Comprehensive yearly horoscope reading based on your birth chart, planetary influences, and life path cycles.' 
+                },
+                price: 35000,
+                time: { my: '၁ - ၃ ရက်', en: '1–3 working days' },
+                icon: 'fa-sun',
+                category: 'horoscope'
+            },
+            {
+                id: 'mahabote-astrology',
+                title: { my: 'မဟာဘုတ် ဗေဒင်အထူး', en: 'Mahabote Astrology' },
+                desc: { 
+                    my: 'မြန်မာ့ရိုးရာ မဟာဘုတ်ခွင် (အထွန်း၊ သိုက်၊ ရာဇ၊ အဓိပတိ၊ မရဏ၊ သေတ္တ၊ ပုတိ) အခြေခံဖြင့် နက်နက်နဲနဲ တွက်ချက်ဟောကြားခြင်း။', 
+                    en: 'Traditional Burmese Mahabote system analysis detailing your ruling house, strengths, and life elemental balance.' 
+                },
+                price: 25000,
+                time: { my: '၁ - ၂ ရက်', en: '1–2 working days' },
+                icon: 'fa-star-of-david',
+                category: 'mahabote'
+            },
+            {
+                id: 'love-relationship',
+                title: { my: 'အချစ်ရေးနှင့် အိမ်ထောင်ရေး', en: 'Love & Relationship' },
+                desc: { 
+                    my: 'စုံတွဲများ၏ ဓာတ်သင့်မှု၊ သဟဇာတဖြစ်မှု၊ အိမ်ထောင်ရေး သုခချမ်းသာနှင့် ကြုံတွေ့ရမည့် စမ်းသပ်မှုများကို ဇာတာစစ်ဆေးပေးခြင်း။', 
+                    en: 'Compatibility analysis, emotional harmony, marriage prospects, and relationship guidance for couples.' 
+                },
+                price: 30000,
+                time: { my: '၂ - ၃ ရက်', en: '2–3 working days' },
+                icon: 'fa-heart',
+                category: 'relationship'
+            },
+            {
+                id: 'career-business',
+                title: { my: 'အလုပ်အကိုင်နှင့် စီးပွားရေး', en: 'Career & Business' },
+                desc: { 
+                    my: 'မည်သည့်လုပ်ငန်း၊ ရာထူး သို့မဟုတ် ရင်းနှီးမြှုပ်နှံမှုသည် သင့်အတွက် အကောင်းဆုံး အမြတ်အစွန်းရစေမည့် အခွင့်အလမ်းဖြစ်ကြောင်း ဟောကိန်းထုတ်ခြင်း။', 
+                    en: 'Career advancement, business venture timing, partnership suitability, and financial growth guidance.' 
+                },
+                price: 40000,
+                time: { my: '၂ - ၃ ရက်', en: '2–3 working days' },
+                icon: 'fa-briefcase',
+                category: 'career'
+            },
+            {
+                id: 'finance-wealth',
+                title: { my: 'ငွေကြေးနှင့် စည်းစိမ်ဥစ္စာ', en: 'Finance & Wealth' },
+                desc: { 
+                    my: 'ဘဏ္ဍာရေး အတက်အကျ၊ ဥစ္စာပစ္စည်း တိုးပွားမည့် ကာလများနှင့် ငွေကြေးစီမံခန့်ခွဲမှုဆိုင်ရာ ဗေဒင်လမ်းညွှန်ချက်။', 
+                    en: 'Wealth accumulation periods, financial risk warnings, and auspicious monetary decision timing.' 
+                },
+                price: 35000,
+                time: { my: '၁ - ၂ ရက်', en: '1–2 working days' },
+                icon: 'fa-coins',
+                category: 'finance'
+            },
+            {
+                id: 'auspicious-date',
+                title: { my: 'မင်္ဂလာရက်နှင့် အခါပေးခြင်း', en: 'Auspicious Date Selection' },
+                desc: { 
+                    my: 'အိမ်တက်မင်္ဂလာ၊ ကုမ္ပဏီဖွင့်ပွဲ၊ မင်္ဂလာဆောင်၊ ကားဝယ်ရန်နှင့် အရေးကြီးလုပ်ငန်းစတင်ရန် အကောင်းဆုံး ရာဇသတ်ရက် ရွေးချယ်ပေးခြင်း။', 
+                    en: 'Selection of auspicious dates and times for weddings, housewarming, business launches, and major events.' 
+                },
+                price: 20000,
+                time: { my: '၂၄ နာရီအတွင်း', en: 'Within 24 hours' },
+                icon: 'fa-calendar-days',
+                category: 'auspicious'
+            }
+        ];
+
+        // Persistent App State in localStorage
+        let appState = {
+            currentUser: JSON.parse(localStorage.getItem('abk_user')) || null,
+            bookings: JSON.parse(localStorage.getItem('abk_bookings')) || [
+                {
+                    id: 'ABK-2026-00001',
+                    serviceId: 'personal-horoscope',
+                    serviceName: { my: 'ကိုယ်ပိုင်ဇာတာနှင့် ကံကြမ္မာ', en: 'Personal Horoscope' },
+                    customerName: 'ဦးအောင်ကျော်ဦး',
+                    phone: '09971234567',
+                    email: 'aung@gmail.com',
+                    dob: '1992-05-14',
+                    tob: '08:30',
+                    pob: 'Yangon',
+                    weekday: 'Saturday',
+                    question: 'လုပ်ငန်းသစ် စတင်ရန် သင့်တော်ပါသလား။',
+                    amount: 35000,
+                    status: 'delivered', // pending, paid, processing, delivered
+                    paymentMethod: 'KBZPay',
+                    date: '2026-04-10',
+                    report: {
+                        intro: 'မွေးသက္ကရာဇ် စနေသားသမီးဖြစ်ပြီး မဟာဘုတ်ခွင်တွင် အဓိပတိ အိမ်သို့ကျရောက်သဖြင့် ခေါင်းဆောင်မှု အစွမ်းအစနှင့် တည်ငြိမ်မှု အထူးကောင်းမွန်သော ဇာတာရှင်ဖြစ်ပါသည်။',
+                        career: 'စီးပွားရေးနှင့် လုပ်ငန်းသစ်များ စတင်ရန်အတွက် ယခုနှစ်သည် အလွန်ကောင်းမွန်သော အခွင့်အလမ်းများ ပေါ်ပေါက်လာမည့် ကာလဖြစ်ပါသည်။',
+                        relationship: 'အိမ်ထောင်ရေးနှင့် လူမှုဆက်ဆံရေးတွင် နားလည်မှုအပြည့်အဝဖြင့် ချောမွေ့ prosperous ဖြစ်မည်။',
+                        finance: 'ငွေကြေးဝင်ရောက်မှု တည်ငြိမ်သော်လည်း ရင်းနှီးမြှုပ်နှံမှုများတွင် စနစ်တကျ စီမံခန့်ခွဲရန် လိုအပ်ပါသည်။',
+                        recommendations: 'အဓိပတိဂြိုဟ်သက်ရောက်မှုအရ ဗုဒ္ဓဟူးနေ့နှင့် စနေနေ့များတွင် အရေးကြီးလုပ်ငန်းများ စတင်ရန် အကြံပြုပါသည်။'
+                    }
+                }
+            ],
+            activeBookingDraft: null
+        };
+
+        function saveState() {
+            localStorage.setItem('abk_user', JSON.stringify(appState.currentUser));
+            localStorage.setItem('abk_bookings', JSON.stringify(appState.bookings));
+        }
+
+        /* ==============================================
+           3. ROUTER & VIEW CONTROLLER
+           ============================================== */
+        let currentRoute = 'home';
+        let routeParam = null;
+
+        const router = {
+            navigate: function(route, param = null) {
+                currentRoute = route;
+                routeParam = param;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                renderView();
+                updateActiveNav();
+            },
+            refresh: function() {
+                renderView();
+            }
+        };
+
+        function updateActiveNav() {
+            // Update mobile menu or active indicators if desired
+        }
+
+        function renderView() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+
+            // Update Auth Button in Header
+            updateAuthHeaderUI();
+
+            switch(currentRoute) {
+                case 'home':
+                    container.innerHTML = renderHomeView();
+                    break;
+                case 'services':
+                    container.innerHTML = renderServicesView();
+                    break;
+                case 'service-detail':
+                    container.innerHTML = renderServiceDetailView(routeParam);
+                    break;
+                case 'booking':
+                    container.innerHTML = renderBookingView(routeParam);
+                    break;
+                case 'payment':
+                    container.innerHTML = renderPaymentView(routeParam);
+                    break;
+                case 'payment-result':
+                    container.innerHTML = renderPaymentResultView(routeParam);
+                    break;
+                case 'howitworks':
+                    container.innerHTML = renderHowItWorksView();
+                    break;
+                case 'faq':
+                    container.innerHTML = renderFAQView();
+                    break;
+                case 'contact':
+                    container.innerHTML = renderContactView();
+                    break;
+                case 'dashboard':
+                    container.innerHTML = renderDashboardView();
+                    break;
+                case 'admin':
+                    container.innerHTML = renderAdminView();
+                    break;
+                case 'report-view':
+                    container.innerHTML = renderReportView(routeParam);
+                    break;
+                default:
+                    container.innerHTML = renderHomeView();
+            }
+        }
+
+        function updateAuthHeaderUI() {
+            const container = document.getElementById('auth-action-container');
+            if (appState.currentUser) {
+                const isAdmin = appState.currentUser.role === 'admin';
+                container.innerHTML = `
+                    <div class="flex items-center gap-2">
+                        ${isAdmin ? `<button onclick="router.navigate('admin')" class="px-3 py-1.5 rounded-lg bg-gold text-teak font-semibold text-xs shadow hover:bg-gold-light transition-colors"><i class="fa-solid fa-gauge mr-1"></i> ${currentLang === 'my' ? 'စီမံခန့်ခွဲမှု' : 'Admin'}</button>` : ''}
+                        <button onclick="router.navigate('dashboard')" class="flex items-center gap-2 px-3 py-1.5 rounded-full maroon-bg text-ivory text-xs sm:text-sm font-medium border border-gold hover:bg-lacquer transition-all shadow">
+                            <i class="fa-solid fa-user-circle text-gold"></i>
+                            <span class="max-w-[100px] truncate">${appState.currentUser.name}</span>
+                        </button>
+                        <button onclick="logout()" title="Logout" class="p-2 text-maroon hover:text-red-600 transition-colors">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </button>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <button onclick="openAuthModal()" class="flex items-center gap-2 px-4 py-2 rounded-full maroon-bg text-ivory text-sm font-medium hover:bg-lacquer transition-all shadow hover:shadow-md">
+                        <i class="fa-solid fa-user"></i>
+                        <span data-i18n="nav_login">${currentLang === 'my' ? 'အကောင့်ဝင်ရန်' : 'Login / Register'}</span>
+                    </button>
+                `;
+            }
+        }
+
+        /* ==============================================
+           4. VIEW RENDERERS
+           ============================================== */
+
+        // VIEW 1: HOME
+        function renderHomeView() {
+            const t = translations[currentLang];
+            return `
+                <!-- Hero Section -->
+                <section class="relative bg-maroon text-ivory py-20 lg:py-28 overflow-hidden border-b-4 border-gold">
+                    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C69B4B_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div class="space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/20 border border-gold text-gold text-xs font-semibold tracking-wider uppercase">
+                                <i class="fa-solid fa-om"></i> <span>Traditional Myanmar Astrology</span>
+                            </div>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight text-parchment">
+                                ${t.hero_title}
+                            </h1>
+                            <p class="text-base sm:text-lg text-parchment/90 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                                ${t.hero_subtitle}
+                            </p>
+                            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                                <button onclick="router.navigate('services')" class="w-full sm:w-auto px-8 py-4 rounded-xl lacquer-bg text-ivory font-bold text-base shadow-lg hover:bg-gold hover:text-teak transition-all transform hover:-translate-y-0.5 border border-gold/45">
+                                    <i class="fa-solid fa-star mr-2 text-gold"></i> ${t.hero_cta}
+                                </button>
+                                <button onclick="router.navigate('howitworks')" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-transparent text-parchment font-semibold text-base border-2 border-gold/60 hover:bg-gold/10 transition-all">
+                                    ${t.hero_cta2}
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Hero Astrology Mandala / Illustration -->
+                        <div class="flex justify-center">
+                            <div class="relative w-72 h-72 sm:w-96 sm:h-96 rounded-full border-4 border-gold/60 flex items-center justify-center p-6 bg-teak/40 shadow-2xl animate-pulse-slow">
+                                <div class="absolute inset-4 rounded-full border-2 border-dashed border-gold/40 animate-spin" style="animation-duration: 40s;"></div>
+                                <div class="text-center space-y-3 z-10">
+                                    <div class="w-20 h-20 rounded-full maroon-bg border-2 border-gold mx-auto flex items-center justify-center shadow-lg">
+                                        <i class="fa-solid fa-sun text-gold text-3xl"></i>
+                                    </div>
+                                    <h3 class="text-2xl font-bold font-heading text-gold">မဟာဘုတ် နက္ခတ်</h3>
+                                    <p class="text-xs text-parchment/80">စနေ၊ တနင်္ဂနွေ၊ တနင်္လာ၊ အင်္ဂါ၊ ဗုဒ္ဓဟူး၊ ကြာသပတေး၊ သောကြာ</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features Section -->
+                <section class="py-20 bg-ivory">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                            <h2 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${t.features_title}</h2>
+                            <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-white p-8 rounded-2xl border border-gold/30 shadow-md hover:shadow-lg transition-shadow text-center space-y-4">
+                                <div class="w-16 h-16 rounded-2xl maroon-bg text-gold flex items-center justify-center mx-auto text-2xl shadow">
+                                    <i class="fa-solid fa-landmark"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-maroon">${t.feat_1_title}</h3>
+                                <p class="text-sm text-teak/70 leading-relaxed">${t.feat_1_desc}</p>
+                            </div>
+                            <div class="bg-white p-8 rounded-2xl border border-gold/30 shadow-md hover:shadow-lg transition-shadow text-center space-y-4">
+                                <div class="w-16 h-16 rounded-2xl maroon-bg text-gold flex items-center justify-center mx-auto text-2xl shadow">
+                                    <i class="fa-solid fa-shield-halved"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-maroon">${t.feat_2_title}</h3>
+                                <p class="text-sm text-teak/70 leading-relaxed">${t.feat_2_desc}</p>
+                            </div>
+                            <div class="bg-white p-8 rounded-2xl border border-gold/30 shadow-md hover:shadow-lg transition-shadow text-center space-y-4">
+                                <div class="w-16 h-16 rounded-2xl maroon-bg text-gold flex items-center justify-center mx-auto text-2xl shadow">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-maroon">${t.feat_3_title}</h3>
+                                <p class="text-sm text-teak/70 leading-relaxed">${t.feat_3_desc}</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured Services Section -->
+                <section class="py-20 bg-parchment/35 border-t border-b border-gold/30">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                            <div>
+                                <h2 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${t.services_section_title}</h2>
+                                <p class="text-sm text-teak/70 mt-2">${t.services_section_sub}</p>
+                            </div>
+                            <button onclick="router.navigate('services')" class="px-6 py-2.5 rounded-lg maroon-bg text-ivory text-sm font-semibold hover:bg-lacquer transition-colors shadow">
+                                ${currentLang === 'my' ? 'အားလုံးကြည့်ရန် (View All)' : 'View All Services'} <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            ${servicesData.slice(0, 3).map(s => `
+                                <div class="bg-ivory rounded-2xl border border-gold/50 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all group">
+                                    <div class="p-6 space-y-4">
+                                        <div class="flex justify-between items-start">
+                                            <div class="w-12 h-12 rounded-xl lacquer-bg text-gold flex items-center justify-center text-xl shadow">
+                                                <i class="fa-solid ${s.icon}"></i>
+                                            </div>
+                                            <span class="px-3 py-1 rounded-full bg-gold/20 text-maroon text-xs font-bold">${s.price.toLocaleString()} MMK</span>
+                                        </div>
+                                        <h3 class="text-xl font-bold font-heading text-maroon group-hover:text-lacquer transition-colors">${s.title[currentLang]}</h3>
+                                        <p class="text-xs sm:text-sm text-teak/80 line-clamp-3 leading-relaxed">${s.desc[currentLang]}</p>
+                                    </div>
+                                    <div class="px-6 py-4 bg-parchment/50 border-t border-gold/30 flex items-center justify-between">
+                                        <span class="text-xs text-teak/70"><i class="fa-regular fa-clock mr-1 text-gold"></i> ${s.time[currentLang]}</span>
+                                        <button onclick="router.navigate('service-detail', '${s.id}')" class="px-4 py-2 rounded-lg maroon-bg text-ivory text-xs font-semibold hover:bg-lacquer transition-colors shadow">
+                                            ${t.btn_view_details}
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+            `;
+        }
+
+        // VIEW 2: SERVICES LISTING
+        function renderServicesView() {
+            const t = translations[currentLang];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+                        <div class="text-center max-w-2xl mx-auto space-y-3">
+                            <h1 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${t.services_section_title}</h1>
+                            <p class="text-sm text-teak/70">${t.services_section_sub}</p>
+                            <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${servicesData.map(s => `
+                                <div class="bg-white rounded-2xl border border-gold/40 shadow-lg overflow-hidden flex flex-col justify-between hover:shadow-xl transition-all group">
+                                    <div class="p-6 space-y-4">
+                                        <div class="flex justify-between items-start">
+                                            <div class="w-14 h-14 rounded-2xl lacquer-bg text-gold flex items-center justify-center text-2xl shadow">
+                                                <i class="fa-solid ${s.icon}"></i>
+                                            </div>
+                                            <span class="px-3.5 py-1.5 rounded-full bg-gold/20 text-maroon text-sm font-bold">${s.price.toLocaleString()} MMK</span>
+                                        </div>
+                                        <h3 class="text-xl font-bold font-heading text-maroon group-hover:text-lacquer transition-colors">${s.title[currentLang]}</h3>
+                                        <p class="text-sm text-teak/80 leading-relaxed">${s.desc[currentLang]}</p>
+                                    </div>
+                                    <div class="px-6 py-4 bg-parchment/30 border-t border-gold/30 flex items-center justify-between">
+                                        <span class="text-xs text-teak/70"><i class="fa-regular fa-clock mr-1 text-gold"></i> ${s.time[currentLang]}</span>
+                                        <button onclick="router.navigate('service-detail', '${s.id}')" class="px-4 py-2 rounded-lg maroon-bg text-ivory text-xs font-semibold hover:bg-lacquer transition-colors shadow">
+                                            ${t.btn_view_details}
+                                        </button>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // VIEW 3: SERVICE DETAILS
+        function renderServiceDetailView(serviceId) {
+            const service = servicesData.find(s => s.id === serviceId) || servicesData[0];
+            const t = translations[currentLang];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <button onclick="router.navigate('services')" class="inline-flex items-center gap-2 text-xs font-semibold text-maroon hover:text-lacquer bg-parchment/60 px-3 py-1.5 rounded-lg border border-gold/40 transition-colors">
+                            <i class="fa-solid fa-arrow-left"></i> ${currentLang === 'my' ? 'ဝန်ဆောင်မှုများသို့ ပြန်ရန်' : 'Back to Services'}
+                        </button>
+
+                        <div class="bg-white rounded-2xl border-2 border-gold/60 shadow-xl overflow-hidden p-6 sm:p-10 space-y-8">
+                            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gold/30 pb-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-16 h-16 rounded-2xl lacquer-bg text-gold flex items-center justify-center text-3xl shadow">
+                                        <i class="fa-solid ${service.icon}"></i>
+                                    </div>
+                                    <div>
+                                        <h1 class="text-2xl sm:text-3xl font-bold font-heading text-maroon">${service.title[currentLang]}</h1>
+                                        <p class="text-xs text-gold font-semibold uppercase tracking-wider mt-1">A Ba Dat Kha · Professional Reading</p>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-2xl font-bold text-maroon">${service.price.toLocaleString()} MMK</div>
+                                    <div class="text-xs text-teak/70"><i class="fa-regular fa-clock mr-1"></i> ${service.time[currentLang]}</div>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold font-heading text-maroon" data-i18n="detail_overview">${currentLang === 'my' ? 'ဝန်ဆောင်မှု အကြောင်းအရာ' : 'Service Overview'}</h3>
+                                <p class="text-sm sm:text-base text-teak/80 leading-relaxed">${service.desc[currentLang]}</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 border-t border-b border-gold/30 text-sm">
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-file-pdf text-lacquer text-lg"></i>
+                                    <span>${currentLang === 'my' ? 'ဒစ်ဂျစ်တယ် PDF အစီရင်ခံစာ' : 'Digital PDF Report'}</span>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <i class="fa-solid fa-user-shield text-lacquer text-lg"></i>
+                                    <span>${currentLang === 'my' ? 'ကိုယ်ရေးကိုယ်တာ အချက်အလက်လုံခြုံမှု ၁၀၀%' : '100% Confidential & Secure'}</span>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 flex justify-end">
+                                <button onclick="startBooking('${service.id}')" class="w-full sm:w-auto px-8 py-4 rounded-xl lacquer-bg text-ivory font-bold text-base shadow-lg hover:bg-maroon transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-star text-gold"></i> ${t.btn_book_now}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // VIEW 4: BOOKING FORM (Step 06 & 07)
+        function startBooking(serviceId) {
+            appState.activeBookingDraft = {
+                serviceId: serviceId,
+                fullName: appState.currentUser ? appState.currentUser.name : '',
+                gender: '',
+                dob: '',
+                tob: '',
+                tobUnknown: false,
+                pob: '',
+                weekday: '',
+                question: '',
+                phone: appState.currentUser ? appState.currentUser.phone : '',
+                email: appState.currentUser ? appState.currentUser.email : ''
+            };
+            router.navigate('booking');
+        }
+
+        function renderBookingView() {
+            const service = servicesData.find(s => s.id === appState.activeBookingDraft.serviceId) || servicesData[0];
+            const draft = appState.activeBookingDraft;
+            const t = translations[currentLang];
+
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <!-- Step Indicator -->
+                        <div class="flex justify-between items-center text-xs sm:text-sm font-semibold text-teak/70 border-b border-gold/40 pb-4">
+                            <span class="text-lacquer font-bold">1. ${t.booking_step_details}</span>
+                            <span>→</span>
+                            <span>2. ${t.booking_step_summary}</span>
+                            <span>→</span>
+                            <span>3. ${t.booking_step_complete}</span>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border-2 border-gold/60 shadow-xl p-6 sm:p-10 space-y-6">
+                            <div class="border-b border-gold/30 pb-4">
+                                <h2 class="text-xl font-bold font-heading text-maroon">${service.title[currentLang]}</h2>
+                                <p class="text-xs text-teak/70 mt-1">${currentLang === 'my' ? 'မှန်ကန်သော မွေးနေ့မွေးချိန် အချက်အလက်များ ဖြည့်သွင်းပါ' : 'Please provide accurate birth details for calculations'}</p>
+                            </div>
+
+                            <form onsubmit="submitBookingForm(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">${t.form_fullname} *</label>
+                                    <input type="text" id="b-name" required value="${draft.fullName}" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_gender}</label>
+                                        <select id="b-gender" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                            <option value="">${t.form_gender_opt1}</option>
+                                            <option value="male" ${draft.gender === 'male' ? 'selected' : ''}>${t.form_gender_opt2}</option>
+                                            <option value="female" ${draft.gender === 'female' ? 'selected' : ''}>${t.form_gender_opt3}</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_dob} *</label>
+                                        <input type="date" id="b-dob" required value="${draft.dob}" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_tob}</label>
+                                        <input type="time" id="b-tob" value="${draft.tob}" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                        <div class="mt-1 flex items-center gap-2 text-xs text-teak/70">
+                                            <input type="checkbox" id="b-tob-unknown" ${draft.tobUnknown ? 'checked' : ''} onchange="toggleTobUnknown(this)">
+                                            <label for="b-tob-unknown">${t.form_tob_unknown}</label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_weekday}</label>
+                                        <select id="b-weekday" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                            <option value="">${t.form_weekday_opt}</option>
+                                            <option value="Sunday">တနင်္ဂနွေ (Sunday)</option>
+                                            <option value="Monday">တနင်္လာ (Monday)</option>
+                                            <option value="Tuesday">အင်္ဂါ (Tuesday)</option>
+                                            <option value="Wednesday">ဗုဒ္ဓဟူး (Wednesday)</option>
+                                            <option value="Thursday">ကြာသပတေး (Thursday)</option>
+                                            <option value="Friday">သောကြာ (Friday)</option>
+                                            <option value="Saturday">စနေ (Saturday)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">${t.form_pob}</label>
+                                    <input type="text" id="b-pob" value="${draft.pob}" placeholder="Yangon / Mandalay" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_phone} *</label>
+                                        <input type="text" id="b-phone" required value="${draft.phone}" placeholder="09..." class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-maroon mb-1">${t.form_email} *</label>
+                                        <input type="email" id="b-email" required value="${draft.email}" placeholder="example@gmail.com" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">${t.form_question}</label>
+                                    <textarea id="b-question" rows="3" class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm focus:ring-2 focus:ring-lacquer" placeholder="အထူးသိလိုသည်များ...">${draft.question}</textarea>
+                                </div>
+
+                                <div class="pt-4 flex justify-between items-center">
+                                    <button type="button" onclick="router.navigate('services')" class="px-6 py-2.5 rounded-lg border border-gold/60 text-maroon text-sm font-semibold hover:bg-gold/10 transition-colors">
+                                        ${t.btn_back}
+                                    </button>
+                                    <button type="submit" class="px-8 py-3 rounded-lg lacquer-bg text-ivory text-sm font-bold shadow hover:bg-maroon transition-colors">
+                                        ${t.btn_next}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function toggleTobUnknown(checkbox) {
+            const tobInput = document.getElementById('b-tob');
+            tobInput.disabled = checkbox.checked;
+            if (checkbox.checked) tobInput.value = '';
+        }
+
+        function submitBookingForm(e) {
+            e.preventDefault();
+            appState.activeBookingDraft.fullName = document.getElementById('b-name').value;
+            appState.activeBookingDraft.gender = document.getElementById('b-gender').value;
+            appState.activeBookingDraft.dob = document.getElementById('b-dob').value;
+            appState.activeBookingDraft.tob = document.getElementById('b-tob').value;
+            appState.activeBookingDraft.pob = document.getElementById('b-pob').value;
+            appState.activeBookingDraft.weekday = document.getElementById('b-weekday').value;
+            appState.activeBookingDraft.question = document.getElementById('b-question').value;
+            appState.activeBookingDraft.phone = document.getElementById('b-phone').value;
+            appState.activeBookingDraft.email = document.getElementById('b-email').value;
+
+            router.navigate('payment');
+        }
+
+        // VIEW 5 & 6: PAYMENT CHECKOUT & RESULT
+        function renderPaymentView() {
+            const draft = appState.activeBookingDraft;
+            if (!draft) return renderServicesView();
+            const service = servicesData.find(s => s.id === draft.serviceId);
+            const t = translations[currentLang];
+
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="bg-white rounded-2xl border-2 border-gold/60 shadow-xl p-6 sm:p-10 space-y-6">
+                            <h2 class="text-2xl font-bold font-heading text-maroon border-b border-gold/30 pb-4">${t.order_summary_title}</h2>
+                            
+                            <div class="space-y-3 text-sm text-teak/80">
+                                <div class="flex justify-between py-2 border-b border-gold/20">
+                                    <span class="font-semibold">${currentLang === 'my' ? 'ဝန်ဆောင်မှု' : 'Service'}</span>
+                                    <span>${service.title[currentLang]}</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gold/20">
+                                    <span class="font-semibold">${currentLang === 'my' ? 'အမည်' : 'Customer Name'}</span>
+                                    <span>${draft.fullName}</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gold/20">
+                                    <span class="font-semibold">${currentLang === 'my' ? 'မွေးသက္ကရာဇ်' : 'Date of Birth'}</span>
+                                    <span>${draft.dob}</span>
+                                </div>
+                                <div class="flex justify-between py-2 border-b border-gold/20 font-bold text-maroon">
+                                    <span>${t.total_amount}</span>
+                                    <span>${service.price.toLocaleString()} MMK</span>
+                                </div>
+                            </div>
+
+                            <div class="space-y-3 pt-4">
+                                <h3 class="text-sm font-bold text-maroon">${t.payment_methods}</h3>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <label class="flex items-center gap-3 p-4 rounded-xl border-2 border-gold/50 cursor-pointer bg-gold/5 hover:bg-gold/10 transition-colors">
+                                        <input type="radio" name="paymethod" value="KBZPay" checked class="text-lacquer">
+                                        <span class="font-bold text-sm">KBZPay / WavePay</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 rounded-xl border-2 border-gold/50 cursor-pointer bg-gold/5 hover:bg-gold/10 transition-colors">
+                                        <input type="radio" name="paymethod" value="BankTransfer" class="text-lacquer">
+                                        <span class="font-bold text-sm">${currentLang === 'my' ? 'ဘဏ်ငွေလွှဲ' : 'Bank Transfer'}</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="pt-6 flex justify-between items-center">
+                                <button onclick="router.navigate('booking')" class="px-6 py-2.5 rounded-lg border border-gold/60 text-maroon text-sm font-semibold hover:bg-gold/10 transition-colors">
+                                    ${t.btn_back}
+                                </button>
+                                <button onclick="processPayment()" class="px-8 py-3.5 rounded-lg lacquer-bg text-ivory font-bold text-sm shadow-lg hover:bg-maroon transition-colors flex items-center gap-2">
+                                    <i class="fa-solid fa-lock text-gold"></i> ${t.pay_now} (${service.price.toLocaleString()} MMK)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function processPayment() {
+            const draft = appState.activeBookingDraft;
+            const service = servicesData.find(s => s.id === draft.serviceId);
+            const orderId = 'ABK-2026-' + Math.floor(10000 + Math.random() * 90000);
+
+            const newBooking = {
+                id: orderId,
+                serviceId: service.id,
+                serviceName: service.title,
+                customerName: draft.fullName,
+                phone: draft.phone,
+                email: draft.email,
+                dob: draft.dob,
+                tob: draft.tob || 'N/A',
+                pob: draft.pob || 'Yangon',
+                weekday: draft.weekday || 'Saturday',
+                question: draft.question,
+                amount: service.price,
+                status: 'paid',
+                paymentMethod: 'KBZPay',
+                date: new Date().toISOString().split('T')[0],
+                report: {
+                    intro: 'သင့်မွေးသက္ကရာဇ် အချက်အလက်များအရ မဟာဘုတ်နှင့် နက္ခတ်တွက်ချက်မှုများ စတင်ဆောင်ရွက်နေပါပြီ။ ကျွမ်းကျင်ဗေဒင်ဆရာကြီးမှ စစ်ဆေးပြီး ၁-၃ ရက်အတွင်း အစီရင်ခံစာ ထွက်ရှိပါမည်။',
+                    career: 'လုပ်ငန်းနှင့် စီးပွားရေး အခြေအနေများ တည်ငြိမ်ကောင်းမွန်ပြီး အခွင့်အလမ်းကောင်းများ ရရှိမည်။',
+                    relationship: 'မိသားစုနှင့် မိတ်ဆွေအပေါင်းအသင်းတို့၏ ပံ့ပိုးကူညီမှုကို ရရှိမည်။',
+                    finance: 'ဝင်ငွေတိုးတက်မည့် ကာလဖြစ်ပြီး ရင်းနှီးမြှုပ်နှံမှုများတွင် အထူးသတိပြုသင့်သည်။',
+                    recommendations: 'ကောင်းမြတ်သော အခါသမယများတွင် အလှူအတန်းပြုလုပ်ရန် အကြံပြုအပ်ပါသည်။'
+                }
+            };
+
+            appState.bookings.unshift(newBooking);
+            saveState();
+            router.navigate('payment-result', orderId);
+        }
+
+        function renderPaymentResultView(orderId) {
+            const booking = appState.bookings.find(b => b.id === orderId) || appState.bookings[0];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="bg-white rounded-2xl border-2 border-gold/60 shadow-xl p-8 text-center space-y-6">
+                            <div class="w-20 h-20 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto text-4xl shadow-inner">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <div class="space-y-2">
+                                <h2 class="text-2xl font-bold font-heading text-maroon">${currentLang === 'my' ? 'ငွေပေးချေမှု အောင်မြင်ပါသည်!' : 'Payment Successful!'}</h2>
+                                <p class="text-xs sm:text-sm text-teak/70">${currentLang === 'my' ? 'သင့်ဗေဒင်ဘိုကင် အောင်မြင်စွာ တင်ပြီးပါပြီ။ အောက်ပါ အမှာစာနံပါတ်ကို မှတ်သားထားပါ။' : 'Your booking has been successfully placed. Save your order number below.'}</p>
+                            </div>
+
+                            <div class="p-4 rounded-xl bg-parchment/50 border border-gold/40 text-left space-y-2 text-sm">
+                                <div class="flex justify-between"><span class="font-semibold">Order ID:</span> <span class="font-bold text-maroon">${booking.id}</span></div>
+                                <div class="flex justify-between"><span class="font-semibold">${currentLang === 'my' ? 'ဝန်ဆောင်မှု' : 'Service'}:</span> <span>${booking.serviceName[currentLang]}</span></div>
+                                <div class="flex justify-between"><span class="font-semibold">${currentLang === 'my' ? 'ငွေပမာဏ' : 'Amount'}:</span> <span>${booking.amount.toLocaleString()} MMK</span></div>
+                                <div class="flex justify-between"><span class="font-semibold">${currentLang === 'my' ? 'ရစိတ္အခြေအနေ' : 'Status'}:</span> <span class="text-green-600 font-bold">${booking.status.toUpperCase()}</span></div>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                                <button onclick="router.navigate('dashboard')" class="flex-1 py-3 rounded-xl maroon-bg text-ivory font-semibold text-sm shadow hover:bg-lacquer transition-colors">
+                                    <i class="fa-solid fa-user-circle mr-2"></i> ${currentLang === 'my' ? 'ကျွန်ုပ်၏ အကောင့်သို့ သွားရန်' : 'Go to My Account'}
+                                </button>
+                                <button onclick="router.navigate('home')" class="flex-1 py-3 rounded-xl border border-gold/60 text-maroon font-semibold text-sm hover:bg-gold/10 transition-colors">
+                                    ${currentLang === 'my' ? 'ပင်မစာမျက်နှာသို့' : 'Back to Home'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // VIEW 7: DASHBOARD (MY ACCOUNT)
+        function renderDashboardView() {
+            const t = translations[currentLang];
+            const userBookings = appState.bookings; // In real app, filtered by current user
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="bg-maroon text-ivory p-8 rounded-2xl border-2 border-gold shadow-xl flex flex-col sm:flex-row justify-between items-center gap-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-full bg-gold text-maroon flex items-center justify-center text-3xl font-bold shadow">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div>
+                                    <h2 class="text-2xl font-bold font-heading text-parchment">${appState.currentUser ? appState.currentUser.name : 'Guest User'}</h2>
+                                    <p class="text-xs text-gold">${appState.currentUser ? appState.currentUser.email : 'guest@abadatkha.com'}</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="px-5 py-3 rounded-xl bg-teak/60 border border-gold/40 text-center">
+                                    <div class="text-xl font-bold text-gold">${userBookings.length}</div>
+                                    <div class="text-xs text-parchment/80">${currentLang === 'my' ? 'မှာယူမှုများ' : 'Bookings'}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bookings & Reports Table -->
+                        <div class="bg-white rounded-2xl border border-gold/40 shadow-lg p-6 sm:p-8 space-y-6">
+                            <h3 class="text-xl font-bold font-heading text-maroon border-b border-gold/30 pb-3">${t.tab_bookings}</h3>
+                            
+                            ${userBookings.length === 0 ? `
+                                <p class="text-sm text-teak/60 py-8 text-center">${t.no_bookings}</p>
+                            ` : `
+                                <div class="overflow-x-auto">
+                                    <table class="w-full text-left text-sm">
+                                        <thead class="bg-parchment/50 text-maroon uppercase text-xs border-b border-gold/30">
+                                            <tr>
+                                                <th class="p-3">Order ID</th>
+                                                <th class="p-3">${currentLang === 'my' ? 'ဝန်ဆောင်မှု' : 'Service'}</th>
+                                                <th class="p-3">${currentLang === 'my' ? 'ရက်စွဲ' : 'Date'}</th>
+                                                <th class="p-3">${currentLang === 'my' ? 'ငွေပမာဏ' : 'Amount'}</th>
+                                                <th class="p-3">${currentLang === 'my' ? 'အခြေအနေ' : 'Status'}</th>
+                                                <th class="p-3 text-right">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gold/20">
+                                            ${userBookings.map(b => `
+                                                <tr class="hover:bg-ivory/50 transition-colors">
+                                                    <td class="p-3 font-bold text-maroon">${b.id}</td>
+                                                    <td class="p-3">${b.serviceName[currentLang]}</td>
+                                                    <td class="p-3 text-xs text-teak/70">${b.date}</td>
+                                                    <td class="p-3 font-semibold">${b.amount.toLocaleString()} MMK</td>
+                                                    <td class="p-3">
+                                                        <span class="px-2.5 py-1 rounded-full text-xs font-bold ${b.status === 'delivered' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}">
+                                                            ${b.status.toUpperCase()}
+                                                        </span>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <button onclick="router.navigate('report-view', '${b.id}')" class="px-3 py-1.5 rounded-lg maroon-bg text-ivory text-xs font-semibold hover:bg-lacquer transition-colors shadow">
+                                                            <i class="fa-solid fa-file-lines mr-1"></i> ${t.view_report}
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            `).join('')}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            `}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // VIEW 8: ASTROLOGY REPORT TEMPLATE
+        function renderReportView(orderId) {
+            const booking = appState.bookings.find(b => b.id === orderId) || appState.bookings[0];
+            const r = booking.report;
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+                        <div class="flex justify-between items-center">
+                            <button onclick="router.navigate('dashboard')" class="inline-flex items-center gap-2 text-xs font-semibold text-maroon hover:text-lacquer bg-parchment/60 px-3 py-1.5 rounded-lg border border-gold/40">
+                                <i class="fa-solid fa-arrow-left"></i> ${currentLang === 'my' ? 'နောက်သို့' : 'Back'}
+                            </button>
+                            <button onclick="window.print()" class="px-4 py-2 rounded-lg lacquer-bg text-ivory text-xs font-semibold shadow hover:bg-maroon transition-colors">
+                                <i class="fa-solid fa-download mr-1"></i> ${translations[currentLang].download_report}
+                            </button>
+                        </div>
+
+                        <!-- Report Document Container -->
+                        <div id="printable-report" class="bg-[#FDFBF7] p-8 sm:p-12 rounded-2xl border-4 border-gold/80 shadow-2xl space-y-8 relative overflow-hidden">
+                            <!-- Traditional Header Ornament -->
+                            <div class="text-center space-y-3 border-b-2 border-gold/40 pb-8">
+                                <div class="w-16 h-16 rounded-full maroon-bg text-gold flex items-center justify-center mx-auto text-2xl border-2 border-gold shadow">
+                                    <i class="fa-solid fa-om"></i>
+                                </div>
+                                <h1 class="text-2xl sm:text-3xl font-bold font-heading text-maroon">အဘဓာတ်ခန်း ဗေဒင်ဟောစာတမ်း</h1>
+                                <p class="text-xs text-gold uppercase tracking-widest font-semibold">A Ba Dat Kha · Traditional Myanmar Astrology Report</p>
+                            </div>
+
+                            <!-- Customer Info Grid -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-4 rounded-xl bg-parchment/40 border border-gold/30 text-xs sm:text-sm">
+                                <div><span class="font-semibold text-maroon">Name:</span> ${booking.customerName}</div>
+                                <div><span class="font-semibold text-maroon">DOB:</span> ${booking.dob}</div>
+                                <div><span class="font-semibold text-maroon">Weekday:</span> ${booking.weekday}</div>
+                                <div><span class="font-semibold text-maroon">Report ID:</span> ${booking.id}</div>
+                            </div>
+
+                            <!-- Report Sections -->
+                            <div class="space-y-6 text-sm sm:text-base text-teak/90 leading-relaxed font-sans">
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold font-heading text-maroon border-b border-gold/20 pb-1">01. နိဒါန်း / Introduction</h3>
+                                    <p>${r.intro}</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold font-heading text-maroon border-b border-gold/20 pb-1">02. အလုပ်အကိုင်နှင့် စီးပွားရေး / Career & Business</h3>
+                                    <p>${r.career}</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold font-heading text-maroon border-b border-gold/20 pb-1">03. အချစ်ရေးနှင့် လူမှုဆက်ဆံရေး / Love & Relationships</h3>
+                                    <p>${r.relationship}</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold font-heading text-maroon border-b border-gold/20 pb-1">04. ငွေကြေးနှင့် စည်းစိမ်ဥစ္စာ / Finance & Wealth</h3>
+                                    <p>${r.finance}</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <h3 class="text-lg font-bold font-heading text-maroon border-b border-gold/20 pb-1">05. အကြံပြုချက်များနှင့် နိဂုံး / Recommendations</h3>
+                                    <p>${r.recommendations}</p>
+                                </div>
+                            </div>
+
+                            <div class="pt-8 border-t-2 border-gold/40 text-center text-xs text-teak/60">
+                                <p>A Ba Dat Kha · Traditional Myanmar Astrology Digital Platform</p>
+                                <p class="mt-1">Generated securely on ${booking.date}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // VIEW 9: ADMIN DASHBOARD
+        function renderAdminView() {
+            const bookings = appState.bookings;
+            const t = translations[currentLang];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="bg-maroon text-ivory p-8 rounded-2xl border-2 border-gold shadow-xl flex justify-between items-center">
+                            <div>
+                                <h1 class="text-2xl font-bold font-heading text-parchment">${t.admin_title}</h1>
+                                <p class="text-xs text-gold mt-1">${t.admin_subtitle}</p>
+                            </div>
+                            <div class="px-4 py-2 rounded-xl bg-gold text-teak font-bold text-xs">
+                                ADMIN MODE
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-gold/40 shadow-lg p-6 sm:p-8 space-y-6">
+                            <h3 class="text-xl font-bold font-heading text-maroon border-b border-gold/30 pb-3">${t.admin_orders}</h3>
+                            
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-parchment/50 text-maroon uppercase text-xs border-b border-gold/30">
+                                        <tr>
+                                            <th class="p-3">Order ID</th>
+                                            <th class="p-3">Customer</th>
+                                            <th class="p-3">Service</th>
+                                            <th class="p-3">Amount</th>
+                                            <th class="p-3">Status</th>
+                                            <th class="p-3 text-right">Manage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gold/20">
+                                        ${bookings.map(b => `
+                                            <tr>
+                                                <td class="p-3 font-bold text-maroon">${b.id}</td>
+                                                <td class="p-3">${b.customerName}<br><span class="text-xs text-teak/60">${b.phone}</span></td>
+                                                <td class="p-3">${b.serviceName[currentLang]}</td>
+                                                <td class="p-3 font-semibold">${b.amount.toLocaleString()} MMK</td>
+                                                <td class="p-3">
+                                                    <select onchange="updateOrderStatus('${b.id}', this.value)" class="px-2.5 py-1 rounded-lg text-xs font-bold border border-gold/40 bg-parchment/30">
+                                                        <option value="pending" ${b.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                                        <option value="paid" ${b.status === 'paid' ? 'selected' : ''}>Paid</option>
+                                                        <option value="processing" ${b.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                                        <option value="delivered" ${b.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                                    </select>
+                                                </td>
+                                                <td class="p-3 text-right">
+                                                    <button onclick="router.navigate('report-view', '${b.id}')" class="px-3 py-1.5 rounded-lg maroon-bg text-ivory text-xs font-semibold hover:bg-lacquer transition-colors">
+                                                        ${t.view_report}
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateOrderStatus(orderId, newStatus) {
+            const b = appState.bookings.find(x => x.id === orderId);
+            if (b) {
+                b.status = newStatus;
+                saveState();
+                showToast(currentLang === 'my' ? 'အမှာစာ အခြေအနေ အောင်မြင်စွာ ပြောင်းလဲပြီးပါပြီ။' : 'Order status updated successfully.');
+            }
+        }
+
+        // STATIC VIEWS: HOW IT WORKS, FAQ, CONTACT
+        function renderHowItWorksView() {
+            const t = translations[currentLang];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                        <div class="text-center space-y-3">
+                            <h1 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${t.how_title}</h1>
+                            <p class="text-sm text-teak/70">${t.how_sub}</p>
+                            <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                            <div class="bg-white p-6 rounded-2xl border border-gold/40 shadow space-y-3">
+                                <div class="w-10 h-10 rounded-full lacquer-bg text-gold flex items-center justify-center font-bold">1</div>
+                                <h3 class="text-lg font-bold font-heading text-maroon">${t.step_1}</h3>
+                                <p class="text-sm text-teak/70">${t.step_1_desc}</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl border border-gold/40 shadow space-y-3">
+                                <div class="w-10 h-10 rounded-full lacquer-bg text-gold flex items-center justify-center font-bold">2</div>
+                                <h3 class="text-lg font-bold font-heading text-maroon">${t.step_2}</h3>
+                                <p class="text-sm text-teak/70">${t.step_2_desc}</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl border border-gold/40 shadow space-y-3">
+                                <div class="w-10 h-10 rounded-full lacquer-bg text-gold flex items-center justify-center font-bold">3</div>
+                                <h3 class="text-lg font-bold font-heading text-maroon">${t.step_3}</h3>
+                                <p class="text-sm text-teak/70">${t.step_3_desc}</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl border border-gold/40 shadow space-y-3">
+                                <div class="w-10 h-10 rounded-full lacquer-bg text-gold flex items-center justify-center font-bold">4</div>
+                                <h3 class="text-lg font-bold font-heading text-maroon">${t.step_4}</h3>
+                                <p class="text-sm text-teak/70">${t.step_4_desc}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFAQView() {
+            const faqs = [
+                { q: { my: 'မွေးချိန်အတိအကျ မသိပါက ဘာလုပ်ရမလဲ။', en: 'What if I do not know my exact birth time?' }, a: { my: 'မွေးချိန်မသိပါက "မွေးချိန်မသိပါ" ဟူသော ကွက်လပ်ကို အမှန်ခြစ်နိုင်ပါသည်။ ဗေဒင်ဆရာကြီးမှ မွေးနေ့နံနှင့် အခြားအချက်အလက်များကို အခြေခံ၍ ဟောကိန်းထုတ်ပေးပါမည်။', en: 'You can check the "I don’t know my birth time" box. Our master astrologers will calculate based on your birth weekday and date.' } },
+                { q: { my: 'အစီရင်ခံစာကို မည်သို့လက်ခံရရှိမည်နည်း။', en: 'How will I receive my astrology report?' }, a: { my: 'အစီရင်ခံစာ ပြီးစီးပါက သင့်အကောင့်ထဲတွင် PDF ဖိုင်ပုံစံဖြင့် ဒေါင်းလုဒ်ဆွဲနိုင်ပြီး အီးမေးလ်မှတစ်ဆင့်လည်း ပို့ဆောင်ပေးပါသည်။', en: 'Once completed, you can download the PDF report directly from your account dashboard, and a copy will be emailed to you.' } },
+                { q: { my: 'မည်သည့် ငွေပေးချေမှုစနစ်များကို လက်ခံပါသနည်း။', en: 'What payment methods are accepted?' }, a: { my: 'KBZPay၊ WavePay နှင့် မြန်မာနိုင်ငံအတွင်းရှိ ဘဏ်ငွေလွှဲစနစ်များကို လက်ခံပါသည်။', en: 'We accept KBZPay, WavePay, and direct bank transfers within Myanmar.' } }
+            ];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="text-center space-y-3">
+                            <h1 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${translations[currentLang].faq_title}</h1>
+                            <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                        </div>
+                        <div class="space-y-4">
+                            ${faqs.map(f => `
+                                <div class="bg-white p-6 rounded-2xl border border-gold/40 shadow-sm space-y-2">
+                                    <h3 class="font-bold text-maroon text-base">${f.q[currentLang]}</h3>
+                                    <p class="text-sm text-teak/80 leading-relaxed">${f.a[currentLang]}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderContactView() {
+            const t = translations[currentLang];
+            return `
+                <div class="py-12 bg-ivory">
+                    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+                        <div class="text-center space-y-3">
+                            <h1 class="text-3xl sm:text-4xl font-bold font-heading text-maroon">${t.contact_title}</h1>
+                            <p class="text-sm text-teak/70">${t.contact_sub}</p>
+                            <div class="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border-2 border-gold/60 shadow-xl p-6 sm:p-10 space-y-6">
+                            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">${t.form_fullname}</label>
+                                    <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">${t.form_email}</label>
+                                    <input type="email" required class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-maroon mb-1">မက်ဆေ့ခ်ျ (Message)</label>
+                                    <textarea rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-gold/60 bg-white text-sm"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-3 rounded-lg lacquer-bg text-ivory font-bold text-sm shadow hover:bg-maroon transition-colors">
+                                    ${t.btn_send_msg}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast(currentLang === 'my' ? 'မက်ဆေ့ခ်ျ ပို့ပြီးပါပြီ။ ကျေးဇူးတင်ပါသည်။' : 'Message sent successfully. Thank you!');
+            e.target.reset();
+        }
+
+        /* ==============================================
+           5. AUTH MODAL & LOGIC
+           ============================================== */
+        let authMode = 'login';
+
+        function openAuthModal() {
+            document.getElementById('auth-modal').classList.remove('hidden');
+        }
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.add('hidden');
+        }
+
+        function switchAuthTab(tab) {
+            authMode = tab;
+            document.getElementById('tab-login').className = tab === 'login' ? 'flex-1 pb-2 text-center text-maroon border-b-2 border-lacquer transition-all font-bold' : 'flex-1 pb-2 text-center text-teak/60 border-b-2 border-transparent transition-all';
+            document.getElementById('tab-register').className = tab === 'register' ? 'flex-1 pb-2 text-center text-maroon border-b-2 border-lacquer transition-all font-bold' : 'flex-1 pb-2 text-center text-teak/60 border-b-2 border-transparent transition-all';
+            document.getElementById('tab-admin').className = tab === 'admin' ? 'flex-1 pb-2 text-center text-maroon border-b-2 border-lacquer transition-all font-bold' : 'flex-1 pb-2 text-center text-teak/60 border-b-2 border-transparent transition-all';
+            
+            const nameField = document.getElementById('register-name-field');
+            const submitBtn = document.getElementById('auth-submit-btn');
+
+            if (tab === 'register') {
+                nameField.classList.remove('hidden');
+                submitBtn.innerText = currentLang === 'my' ? 'စာရင်းသွင်းမည်' : 'Create Account';
+            } else if (tab === 'admin') {
+                nameField.classList.add('hidden');
+                submitBtn.innerText = currentLang === 'my' ? 'စီမံခန့်ခွဲသူ ဝင်ရန်' : 'Admin Login';
+                document.getElementById('auth-identifier').value = 'admin@abadatkha.com';
+            } else {
+                nameField.classList.add('hidden');
+                submitBtn.innerText = currentLang === 'my' ? 'အကောင့်ဝင်မည်' : 'Sign In';
+            }
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            const identifier = document.getElementById('auth-identifier').value;
+            const name = document.getElementById('auth-name').value || (authMode === 'admin' ? 'Admin Master' : 'ဦးမောင်မောင်');
+
+            if (authMode === 'admin' || identifier.includes('admin')) {
+                appState.currentUser = { name: 'Admin Master', email: 'admin@abadatkha.com', role: 'admin' };
+                saveState();
+                closeAuthModal();
+                showToast(currentLang === 'my' ? 'စီမံခန့်ခွဲသူ အဖြစ် အောင်မြင်စွာ ဝင်ရောက်ပါပြီ။' : 'Logged in as Admin successfully.');
+                router.navigate('admin');
+                return;
+            }
+
+            appState.currentUser = { name: name, email: identifier, role: 'customer' };
+            saveState();
+            closeAuthModal();
+            showToast(currentLang === 'my' ? 'အကောင့်ဝင်ရောက်မှု အောင်မြင်ပါသည်။' : 'Logged in successfully.');
+            router.navigate('dashboard');
+        }
+
+        function logout() {
+            appState.currentUser = null;
+            saveState();
+            showToast(currentLang === 'my' ? 'အကောင့်မှ ထွက်ပြီးပါပြီ။' : 'Logged out successfully.');
+            router.navigate('home');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-teak text-ivory px-4 py-3 rounded-xl border border-gold shadow-lg text-xs sm:text-sm font-semibold pointer-events-auto animate-in fade-in slide-in-from-bottom-5 duration-200';
+            toast.innerText = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Initialize App on Window Load
+        window.onload = function() {
+            setLanguage(currentLang);
+            router.navigate('home');
+        };
+    </script>
+</body>
+</html>
